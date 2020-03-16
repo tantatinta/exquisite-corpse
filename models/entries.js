@@ -7,9 +7,8 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 140]
       }
     },
-    autor: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+    author: {
+      type: DataTypes.STRING
     },
   });
   Entry.associate = function(models) {
