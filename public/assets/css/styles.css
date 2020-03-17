@@ -40,3 +40,7 @@ body {
   color: #2A363B;
   font-size: 100px;
 }
+
+.container {
+  height: 100vh;
+}
