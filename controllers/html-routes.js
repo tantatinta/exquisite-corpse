@@ -9,21 +9,24 @@ module.exports = function(app) {
     db.Story.findAll({
       include: [db.Entry]
     })
-      .then(function(allCompleteStories){
-        var storyLength;
-        var sentArray = [];
-        if(allCompleteStories.length<10){
-          storyLength = 0;
-        }else{
-          storyLength = allCompleteStories.length - 10;
-        }
-        for (var i = storyLength; i<allCompleteStories.length; i++){
-          sentArray.push(allCompleteStories[i].dataValues);
-        }
-        console.log(sentArray);
-        res.render("read", { allCompleteStories: sentArray });
+      .then(function(storyData){
+        var allStoryStrings = [];
+        storyData.forEach(function(val){
+          if(allStoryStrings.length<10){
+            if(val.dataValues.Entries.length === 3){
+              var entriesArray = val.dataValues.Entries;
+              var storyString = "";
+              entriesArray.forEach(function(result){
+                var storyText = result.dataValues.text;
+                storyString += storyText;
+              });
+              allStoryStrings.push(storyString);
+            }
+          }
+        });
+        console.log({ storyData: allStoryStrings });
+        res.render("read", { storyData: allStoryStrings });
       });
-
   });
 
   app.get("/write", function(req, res) {
