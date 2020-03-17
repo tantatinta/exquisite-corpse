@@ -10,9 +10,22 @@ module.exports = function(app) {
       include: [db.Entry]
     })
       .then(function(allCompleteStories){
-        console.log(allCompleteStories[0].dataValues.Entries[1].dataValues);
-        // console.log({ allCompleteStories: allCompleteStories });
-        res.render("read", { allCompleteStories: allCompleteStories });
+        // console.log(allCompleteStories[0].dataValues.Entries[1].dataValues);
+        // console.log(allCompleteStories.length);
+        var storyLength;
+        var sentArray = [];
+        if(allCompleteStories.length<10){
+          storyLength = 0;
+        }else{
+          storyLength = allCompleteStories.length - 10;
+        }
+        for (var i = storyLength; i<allCompleteStories.length; i++){
+          sentArray.push(allCompleteStories[i].dataValues);
+        }
+        // console.log(sentArray);
+        // console.log({ allCompleteStories: sentArray });
+        // console.log(sentArray[0].Entries[1].dataValues);
+        res.render("read", { allCompleteStories: sentArray });
       });
 
     // db.Entry.findAll({
