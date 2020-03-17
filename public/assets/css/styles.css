@@ -3,10 +3,16 @@
  font-family: 'Cormorant Infant', serif; 
  font-family: 'Poppins', sans-serif; 
  font-family: 'Baloo Bhai 2', cursive; */
-#header {
+#header{
   font-family: 'Poppins', sans-serif;
   color: #2A363B;
   font-size: 60px;
+}
+
+.entryHeader {
+  font-family: 'Poppins', sans-serif;
+  color: #2A363B;
+  font-size: 40px;
 }
 
 h2 {
@@ -29,7 +35,7 @@ body {
   background-color:rgb(253, 250, 250);
 }
 
-#main {
+#main, .card-panel {
   padding: 20px;
   background-color: rgb(253, 250, 250);
   border-style: solid;
@@ -48,4 +54,8 @@ body {
 
 .container {
   height: 100vh;
+}
+
+#storyAuthor, #entryAuthor {
+  width: 200px;
 }
