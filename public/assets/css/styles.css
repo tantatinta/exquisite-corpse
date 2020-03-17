@@ -63,3 +63,14 @@ body {
 .btn {
   background-color: #2A363B;
 }
+
+/* label focus color */
+.input-field input[type=story] + label, .materialize-textarea:focus:not([readonly]) + label, .input-field input[type=entry] + label, .materialize-textarea:focus:not([readonly]) + label {
+  color: #2A363B !important;
+ }
+
+/* label underline focus color */
+.input-field input[type=storyAuthor], .materialize-textarea:focus:not([readonly]), .input-field input[type=entryAuthor], .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #2A363B !important;
+  box-shadow: 0 1px 0 0 #2A363B !important;
+ }
