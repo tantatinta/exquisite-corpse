@@ -3,30 +3,30 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-  app.get("/api/entry", function (req, res) {
+  // app.get("/api/entry:author", function (req, res) {
 
-    db.Story.findAll({
-      where: {
-        author: req.body.author
-      },
-    }).then(function (dbStory) {
-      res.json(dbStory);
-      console.log(dbStory);
-    });
-  });
+  //   db.Story.findAll({
+  //     where: {
+  //       author: res.body.author
+  //     },
+  //   }).then(function (dbStory) {
+  //     res.json(dbStory);
+  //     console.log(dbStory);
+  //   });
+  // });
 
 
   // for finding a specific story and all associated entries
-  app.get("/api/story:id", function (req, res) {
-    db.Stroy.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Entry]
-    }).then(function (dbStory) {
-      res.json(dbStory);
-    });
-  });
+  // app.get("/api/story:id", function (req, res) {
+  //   db.Stroy.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     },
+  //     include: [db.Entry]
+  //   }).then(function (dbStory) {
+  //     res.json(dbStory);
+  //   });
+  // });
 
   // for creating a new story title *Working*
   app.post("/api/story", function (req, res) {
