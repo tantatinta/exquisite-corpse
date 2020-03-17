@@ -3,6 +3,19 @@ var db = require("../models");
 
 module.exports = function(app) {
 
+  app.get("/api/entry", function(req, res){
+
+    db.Story.findAll({
+      where: {
+        author: req.body.author
+      },
+    }).then(function(dbStory){
+      res.json(dbStory);
+      console.log(dbStory);
+    });
+  });
+
+
   // for finding a specific story and all associated entries
   app.get("/api/story:id", function(req, res) {
     db.Stroy.findOne({

@@ -1,12 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize) {
   var Story = sequelize.define("Story", {
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 140]
-      }
-    }
   });
   Story.associate = function(models) {
     Story.hasMany(models.Entry, {
