@@ -15,6 +15,10 @@ h2 {
   font-weight: bold;
 }
 
+a {
+  color: #2A363B;
+}
+
 p {
   font-family: 'Baloo Bhai 2';
   color: #2A363B;
@@ -33,4 +37,15 @@ body {
   border-color:#E84A5F;
   border-radius: 15px;
  
+}
+
+#start {
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #2A363B;
+  font-size: 100px;
+}
+
+.container {
+  height: 100vh;
 }
