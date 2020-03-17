@@ -1,0 +1,31 @@
+ /* green #99B898 yellow #FECEA8*  orange #FF847C  red #E84A5F */
+ /* font-family: 'Secular One', sans-serif; font-family: 'Cormorant Infant', serif; font-family: 'Poppins', sans-serif; font-family: 'Baloo Bhai 2', cursive; */
+#header {
+  font-family: 'Poppins', sans-serif;
+  color: #2A363B;
+  font-size: 100px;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Baloo Bhai 2';
+  color: #2A363B;
+  font-size: 25px;
+}
+body {
+  background-color:rgb(253, 250, 250);
+}
+#main {
+  padding: 20px;
+  background-color: rgb(253, 250, 250);
+  border-style: solid;
+  border-width: 5px;
+  border-color:#E84A5F;
+  border-radius: 15px;
+ 
+}
