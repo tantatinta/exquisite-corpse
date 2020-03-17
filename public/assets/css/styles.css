@@ -15,10 +15,10 @@ h1 {
   font-weight: bold;
   margin: 0;
 }
-.entryHeader {
+.cardHeader {
   font-family: 'Poppins', sans-serif;
   color: #2A363B;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 h2 {
