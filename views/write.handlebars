@@ -1,12 +1,12 @@
-<div class="container valign-wrapper">
+<div class="col s12 valign-wrapper">
   <div class="row">
       {{!-- Entry Panel --}}
-      <div class="card-panel center-align">
+      <div class="main card-panel center-align">
         {{!-- We'll need to write code that pulls only the last sentence. I'm not sure if thats front or backend territory. Either way I think spliting or periods might work.--}}
         <h2 class="entryHeader">Continue a Story!</h2>
         <p id="lastEntry">{{this.title}} Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
       </div>
-      <div class="card-panel">
+      <div class="main card-panel">
         <div class="input-field">
             <textarea id="story" class="materialize-textarea" data-length="120"></textarea>
             <label for="story">Continuation</label>
@@ -18,10 +18,10 @@
         <button id="submit" class="btn" type="submit">Save!</button>
       </div>
       {{!-- Story Panel --}}
-      <div class="card-panel center-align">
+      <div class="main card-panel center-align">
         <h2 class="entryHeader">or Create a Story!</h2>
       </div>
-      <div class="card-panel">
+      <div class="main card-panel">
         <div class="input-field">
             <textarea id="entry" class="materialize-textarea" data-length="120"></textarea>
             <label for="entry">New Story</label>
