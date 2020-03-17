@@ -31,7 +31,6 @@ module.exports = function(app) {
   // for creating a new story title
   app.post("/api/story", function(req, res) {
     db.Story.create({
-      title: req.body.title,
     }).then(function(dbStory) {
       res.json(dbStory);
     }).catch(function(err){
