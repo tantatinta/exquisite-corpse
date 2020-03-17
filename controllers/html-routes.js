@@ -2,7 +2,7 @@ var db = require("../models");
 module.exports = function(app) {
 
   app.get("/", function(req, res) {
-    res.render("index");
+    res.render("main");
   });
 
   app.get("/read", function(req, res) {
