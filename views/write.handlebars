@@ -5,10 +5,17 @@
       <p id="lastEntry">{{this.id}}</p>
     </div>
     <div class="card-panel">
-      <form id="entryForm">
-        <input id="addEntry" class="" type="text">
-        <button id="submit" class="btn" type="submit">Save!</button>
-      </form>      
+      <div class="input-field">
+          <textarea id="entry" class="materialize-textarea" data-length="120"></textarea>
+          <label for="entry"></label>
+      </div>
+      <div class="input-field">
+          <textarea id="author" class="materialize-textarea" data-length="20"></textarea>
+          <label for="author"></label>
+      </div>
+      <button id="submit" class="btn" type="submit">Save!</button>
     </div>
   </div>
 </div>
+
+<script src="assets/js/write.js"></script>
