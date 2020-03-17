@@ -3,7 +3,7 @@
  font-family: 'Cormorant Infant', serif; 
  font-family: 'Poppins', sans-serif; 
  font-family: 'Baloo Bhai 2', cursive; */
-#header {
+#header{
   font-family: 'Poppins', sans-serif;
   color: #2A363B;
   font-size: 60px;
@@ -14,6 +14,11 @@ h1 {
   font-size: 30px;
   font-weight: bold;
   margin: 0;
+}
+.entryHeader {
+  font-family: 'Poppins', sans-serif;
+  color: #2A363B;
+  font-size: 40px;
 }
 
 h2 {
@@ -46,7 +51,7 @@ body {
   background-color:rgb(253, 250, 250);
 }
 
-#main {
+.main {
   margin-top: 15px;
   padding: 20px;
   background-color: rgb(253, 250, 250);
@@ -67,3 +72,22 @@ body {
 .container {
   height: 100vh;
 }
+
+#storyAuthor, #entryAuthor {
+  width: 200px;
+}
+
+.btn {
+  background-color: #2A363B;
+}
+
+/* label focus color */
+.input-field input[type=story] + label, .materialize-textarea:focus:not([readonly]) + label, .input-field input[type=entry] + label, .materialize-textarea:focus:not([readonly]) + label {
+  color: #2A363B !important;
+ }
+
+/* label underline focus color */
+.input-field input[type=storyAuthor], .materialize-textarea:focus:not([readonly]), .input-field input[type=entryAuthor], .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #2A363B !important;
+  box-shadow: 0 1px 0 0 #2A363B !important;
+ }

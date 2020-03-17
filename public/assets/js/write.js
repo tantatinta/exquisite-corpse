@@ -1,6 +1,6 @@
 $(document).ready(function() {
+  $("textarea#story").characterCounter();
   $("textarea#entry").characterCounter();
-  $("textarea#author").characterCounter();
 });
 
 $("#submit").on("click", function(event) {
