@@ -1,6 +1,5 @@
-
 var db = require("../models");
-
+const randomWords = require("random-words");
 module.exports = function (app) {
 
   // app.get("/api/entry:author", function (req, res) {
@@ -37,8 +36,7 @@ module.exports = function (app) {
       res.json(err);
     });
   });
-
-
+ 
   // for creating an entry *Working*
   app.post("/api/entry", function (req, res) {
     db.Entry.create(
@@ -55,5 +53,10 @@ module.exports = function (app) {
       console.log(err, "This is error");
       res.json(err);
     });
+  });
+
+  //for creating a random words object
+  app.get("/api/randomword", function (req, res) {
+    res.json(randomWords({exactly:5, wordsPerString:2}));
   });
 };

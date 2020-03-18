@@ -1,4 +1,3 @@
-const randomWords = require("random-words");
 var db = require("../models");
 module.exports = function(app) {
 
@@ -68,9 +67,3 @@ module.exports = function(app) {
   });
 
 };
-
-// code to test random words package 
-app.get("", function() {
-  console.log(randomWords({exactly:5, wordsPerString:2}));
-});
-// .then(function(storyData){
