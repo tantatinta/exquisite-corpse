@@ -52,7 +52,7 @@ module.exports = function(app) {
                 storyId.storyId = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.StoryId;
                 lastSentence.push(last);
                 idOfLastSentence.push(storyId);
-              }else{
+              }else if(val.dataValues.Entries.length === 1){
                 last.text = val.dataValues.Entries[0].dataValues.text;
                 console.log(last.text);
                 console.log("hello");

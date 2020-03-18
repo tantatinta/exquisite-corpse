@@ -2,7 +2,7 @@
 function renderStories(storyData) {
   console.log(storyData);
   if(storyData.length !==0){
-    $("#add-to-me").empty();
+    $("#add-to-me").html("");
     $("#add-to-me").addClass("mainYellow");
     storyData.forEach(function(val){
       if (val.Entries.length === 3){
