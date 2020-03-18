@@ -1,39 +1,34 @@
-<div class="col s12 valign-wrapper">
-  <div class="row">
-      {{!-- Entry Panel --}}
-      <div class="main card-panel center-align">
-        {{!-- We'll need to write code that pulls only the last sentence. I'm not sure if thats front or backend territory. Either way I think spliting or periods might work.--}}
-        <h2 class="cardHeader">Continue a Story!</h2>
+<div class="col s12 m10 l6">
+   {{!-- Entry Panel --}}
+   {{!-- We'll need to write code that pulls only the last sentence. I'm not sure if thats front or backend territory. Either way I think spliting or periods might work.--}}
+  <div class="mainYellow card-panel">
+        <h2 class="cardHeader">continue a story...</h2>
         <p id="lastEntry">{{this.title}} Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-      </div>
-      <div class="main card-panel">
         <div class="input-field">
             <textarea id="story" class="materialize-textarea" data-length="120"></textarea>
-            <label for="story">Continuation</label>
+            <label for="story">what happened next?</label>
         </div>
         <div class="input-field">
             <textarea id="storyAuthor" class="materialize-textarea" data-length="20"></textarea>
-            <label for="storyAuthor">Name</label>
+            <label for="storyAuthor">your pen name</label>
         </div>
-        <button id="submit" class="btn" type="submit">Save!</button>
+        <button id="submit" class="btn-flat waves-effect waves-red" type="submit">Save!</button>
       </div>
-      {{!-- Story Panel --}}
-      <div class="main card-panel center-align">
-        <h2 class="cardHeader">or Create a Story!</h2>
-      </div>
-      <div class="main card-panel">
+</div>
+<div class="col s12 m10 l6">
+   {{!-- Story Panel --}}
+  <div class="mainGreen card-panel">
+        <h2 class="cardHeader">...or create a story!</h2>
         <div class="input-field">
             <textarea id="entry" class="materialize-textarea" data-length="120"></textarea>
-            <label for="entry">New Story</label>
+            <label for="entry">get those fingers moving!</label>
         </div>
         <div class="input-field">
             <textarea id="entryAuthor" class="materialize-textarea" data-length="20"></textarea>
-            <label for="entryAuthor">Name</label>
+            <label for="entryAuthor">your pen name</label>
         </div>
-        <button id="submit" class="btn" type="submit">Save!</button>
+        <button id="submit" class="btn-flat waves-effect waves-red" type="submit">Save!</button>
       </div>
-
-  </div>
 </div>
 
 <script src="assets/js/write.js"></script>
