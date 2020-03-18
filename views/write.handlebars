@@ -9,6 +9,7 @@
           <textarea id="entry" class="materialize-textarea" data-length="420"></textarea>
           <label for="entry">what happened next?</label>
       </div>
+<<<<<<< HEAD
       <div class="input-field">
           <textarea id="entryAuthor" class="materialize-textarea" data-length="20"></textarea>
           <label id="x" for="entryAuthor">your pen name</label>
@@ -28,6 +29,23 @@
       <div class="input-field">
           <textarea id="storyAuthor" class="materialize-textarea" data-length="20"></textarea>
           <label for="storyAuthor">your pen name</label>
+=======
+</div>
+<div class="col s12 m10 l6">
+   {{!-- Story Panel --}}
+  <div class="mainGreen card-panel">
+        <h2 class="cardHeader">...or create a story!</h2>
+        <div class="input-field">
+            <textarea id="story" class="materialize-textarea" data-length="420"></textarea>
+            <label for="story">get those fingers moving!</label>
+        </div>
+        <div class="input-field">
+            <textarea id="storyAuthor" class="materialize-textarea" data-length="20"></textarea>
+            <label for="storyAuthor">your pen name</label>
+        </div>
+        <button id="createSubmit" data-id={{idOfLastStory.0.id}} class="btn-flat waves-effect waves-red" type="submit"><span id="btnText">save!</span></button>
+        <button id="wordRandomizer" class="btn-flat waves-effect waves-yellow"><span id="btnText">give me ideas!</span></button>
+>>>>>>> a8c709f29d32acf31288925202215899d34cf328
       </div>
       <button id="createSubmit" class="btn-flat waves-effect waves-red" type="submit"><span id="btnText">save!</span></button>
       <button id="wordRandomizer" class="btn-flat waves-effect waves-yellow"><span id="btnText">give me ideas!</span></button>
