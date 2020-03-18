@@ -36,7 +36,7 @@ module.exports = function (app) {
       res.json(err);
     });
   });
- 
+
   // for creating an entry *Working*
   app.post("/api/entry", function (req, res) {
     db.Entry.create(
