@@ -17,7 +17,7 @@ module.exports = function(app) {
               var entriesArray = val.dataValues.Entries;
               var storyObject = { text: ""};
               entriesArray.forEach(function(result){
-                storyObject.text += result.dataValues.text;
+                storyObject.text += (" " + result.dataValues.text);
               });
               allStoryStrings.push(storyObject);
             }
