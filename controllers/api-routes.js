@@ -2,6 +2,7 @@ var db = require("../models");
 const randomWords = require("random-words");
 module.exports = function (app) {
 
+  // working
   app.get("/api/entry/:author", function (req, res) {
     db.Entry.findAll({
       where: {
@@ -12,18 +13,14 @@ module.exports = function (app) {
     });
   });
 
-
-  // for finding a specific story and all associated entries
-  // app.get("/api/story:id", function (req, res) {
-  //   db.Story.findOne({
-  //     where: {
-  //       id: req.params.id
-  //     },
-  //     include: [db.Entry]
-  //   }).then(function (dbStory) {
-  //     res.json(dbStory);
-  //   });
-  // });
+  // Working
+  app.get("/api/story/return", function (req, res) {
+    db.Story.findAll({
+      include: [db.Entry]
+    }).then(function (storyData) {
+      res.json(storyData);
+    });
+  });
 
   // for creating a new story title *Working*
   app.post("/api/story", function (req, res) {
