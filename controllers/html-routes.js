@@ -15,12 +15,11 @@ module.exports = function(app) {
           if(allStoryStrings.length<10){
             if(val.dataValues.Entries.length === 3){
               var entriesArray = val.dataValues.Entries;
-              var storyString = "";
+              var storyObject = { text: ""};
               entriesArray.forEach(function(result){
-                var storyText = result.dataValues.text;
-                storyString += storyText;
+                storyObject.text += (" " + result.dataValues.text);
               });
-              allStoryStrings.push(storyString);
+              allStoryStrings.push(storyObject);
             }
           }
         });
@@ -37,26 +36,28 @@ module.exports = function(app) {
         var lastSentence = [];
         var idOfLastSentence = [];
         entryData.forEach(function(val){
-          if(val.dataValues.Entries.length<3){
-            var allText;
-            var last;
-            var storyId;
-            if(val.dataValues.Entries.length>1){
-              allText = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.text;
-              storyId = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.StoryId;
-              var splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
-              if(splitText.length>1){
-                last = splitText[splitText.length - 1];
+          if(lastSentence.length<10){
+            if(val.dataValues.Entries.length<3){
+              var allText;
+              var last;
+              var storyId;
+              if(val.dataValues.Entries.length>1){
+                allText = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.text;
+                storyId = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.StoryId;
+                var splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
+                if(splitText.length>1){
+                  last = splitText[splitText.length - 1];
+                }else{
+                  last = splitText[0];
+                }
+                lastSentence.push(last);
+                idOfLastSentence.push(storyId);
               }else{
-                last = splitText[0];
+                allText = val.dataValues.Entries[0].dataValues.text;
+                storyId = val.dataValues.Entries[0].dataValues.StoryId;
+                lastSentence.push(allText);
+                idOfLastSentence.push(storyId);
               }
-              lastSentence.push(last);
-              idOfLastSentence.push(storyId);
-            }else{
-              allText = val.dataValues.Entries[0].dataValues.text;
-              storyId = val.dataValues.Entries[0].dataValues.StoryId;
-              lastSentence.push(allText);
-              idOfLastSentence.push(storyId);
             }
           }
         });
