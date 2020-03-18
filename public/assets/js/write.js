@@ -13,8 +13,8 @@ $("#createSubmit").on("click", function (event) {
   $.ajax("/api/entry", {
     type: "POST",
     /* StoryId is hardcoded right now, so it only works once currently */
-    data: { text: $("#story").val(), author: $("#storyAuthor").val(), StoryId: 4 }
-  }).then(function (res) {
+    data: {text: $("#story").val(), author: $("#storyAuthor").val(), StoryId: $("#createSubmit").data("id")}
+  }).then(function(res) {
     console.log(res);
   });
 });
