@@ -43,13 +43,13 @@ module.exports = function(app) {
               var storyId = {};
               if(val.dataValues.Entries.length>1){
                 allText = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.text;
-                storyId = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.StoryId;
                 var splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
                 if(splitText.length>1){
                   last.text = splitText[splitText.length - 1];
                 }else{
                   last.text = splitText[0];
                 }
+                storyId.storyId = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.StoryId;
                 lastSentence.push(last);
                 idOfLastSentence.push(storyId);
               }else{

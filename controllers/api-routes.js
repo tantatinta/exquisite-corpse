@@ -17,7 +17,7 @@ module.exports = function (app) {
 
   // for finding a specific story and all associated entries
   // app.get("/api/story:id", function (req, res) {
-  //   db.Stroy.findOne({
+  //   db.Story.findOne({
   //     where: {
   //       id: req.params.id
   //     },
