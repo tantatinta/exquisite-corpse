@@ -15,12 +15,11 @@ module.exports = function(app) {
           if(allStoryStrings.length<10){
             if(val.dataValues.Entries.length === 3){
               var entriesArray = val.dataValues.Entries;
-              var storyString = "";
+              var storyObject = { text: ""};
               entriesArray.forEach(function(result){
-                var storyText = result.dataValues.text;
-                storyString += storyText;
+                storyObject.text += result.dataValues.text;
               });
-              allStoryStrings.push(storyString);
+              allStoryStrings.push(storyObject);
             }
           }
         });
