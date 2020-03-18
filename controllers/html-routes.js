@@ -61,8 +61,12 @@ module.exports = function(app) {
             }
           }
         });
-        console.log({ lastSentence: lastSentence, idOfLastSentence: idOfLastSentence });
-        res.render("write", { lastSentence: lastSentence, idOfLastSentence: idOfLastSentence });
+
+        const idOfLastStory = [{}];
+        idOfLastStory[0].id = entryData[entryData.length - 1].id;
+
+        console.log({ lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory });
+        res.render("write", { lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory});
       });
   });
 
