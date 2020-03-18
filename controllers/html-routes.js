@@ -65,7 +65,7 @@ module.exports = function(app) {
         });
 
         const idOfLastStory = [{}];
-        idOfLastStory[0].id = entryData[entryData.length - 1].id;
+        idOfLastStory[0].id = entryData[entryData.length - 1].id + 1;
 
         console.log({ lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory });
         res.render("write", { lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory});
