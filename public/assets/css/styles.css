@@ -32,9 +32,7 @@ h2 {
 .topRow {
   margin-top: 5px;  
   padding-top: 15px;
-  padding-bottom: 5px;
-  
-  
+  padding-bottom: 5px;  
 }
 
 a {
@@ -51,17 +49,29 @@ body {
   background-color:rgb(253, 250, 250);
 }
 
-.main {
+.mainRed,
+.mainYellow,
+.mainGreen {
   margin-top: 15px;
   padding: 20px;
   background-color: rgb(253, 250, 250);
   border-style: solid;
-  border-width: 4px;
-  border-color:#E84A5F;
+  border-width: 4px;  
   border-radius: 12px;
- 
+}
+.mainRed {
+  border-color:#E84A5F; 
 }
 
+.mainYellow {
+  border-color:#FECEA8; 
+}
+
+.mainGreen {
+  border-color:#99B898;  
+}
+
+/* start id not being used yet 3-17-2020 8 pm  */
 #start {
   padding: 20px;
   font-family: 'Poppins', sans-serif;
@@ -73,13 +83,13 @@ body {
   height: 100vh;
 }
 
-#storyAuthor, #entryAuthor {
+/* #storyAuthor, #entryAuthor {
   width: 200px;
-}
-
+} */
+/* 
 .btn {
   background-color: #2A363B;
-}
+} */
 
 /* label focus color */
 .input-field input[type=story] + label, .materialize-textarea:focus:not([readonly]) + label, .input-field input[type=entry] + label, .materialize-textarea:focus:not([readonly]) + label {
