@@ -54,6 +54,8 @@ module.exports = function(app) {
                 idOfLastSentence.push(storyId);
               }else{
                 last.text = val.dataValues.Entries[0].dataValues.text;
+                console.log(last.text);
+                console.log("hello");
                 storyId.storyId = val.dataValues.Entries[0].dataValues.StoryId;
                 lastSentence.push(last);
                 idOfLastSentence.push(storyId);
