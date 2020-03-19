@@ -4,25 +4,25 @@ var idOfLastSentence = [];
 $(document).ready(function () {
   $("textarea#story").characterCounter();
   $("textarea#entry").characterCounter();
-  $.get("/api/story/return", function(entryData){
-    entryData.forEach(function(val){
-      if(lastSentence.length<10){
-        if(val.Entries.length<3){
+  $.get("/api/story/return", function (entryData) {
+    entryData.forEach(function (val) {
+      if (lastSentence.length < 10) {
+        if (val.Entries.length < 3) {
           var allText;
           var last = {};
           var storyId = {};
-          if(val.Entries.length>1){
-            allText = val.Entries[val.Entries.length-1].text;
+          if (val.Entries.length > 1) {
+            allText = val.Entries[val.Entries.length - 1].text;
             var splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
-            if(splitText.length>1){
+            if (splitText.length > 1) {
               last.text = splitText[splitText.length - 1];
-            }else{
+            } else {
               last.text = splitText[0];
             }
-            storyId.storyId = val.Entries[val.Entries.length-1].StoryId;
+            storyId.storyId = val.Entries[val.Entries.length - 1].StoryId;
             lastSentence.push(last);
             idOfLastSentence.push(storyId);
-          }else if(val.Entries.length === 1){
+          } else if (val.Entries.length === 1) {
             last.text = val.Entries[0].text;
             storyId.storyId = val.Entries[0].StoryId;
             lastSentence.push(last);
@@ -36,9 +36,9 @@ $(document).ready(function () {
 
 // code to change id and last sentence, will need to traverse the dom
 var counter = 0;
-$("#nextBtn").on("click", function(event){
+$("#nextBtn").on("click", function (event) {
   event.preventDefault();
-  if(counter<10){
+  if (counter < 10) {
     counter++;
     var displaySentence = lastSentence[counter].text;
     var displayId = idOfLastSentence[counter].storyId;
@@ -56,8 +56,8 @@ $("#createSubmit").on("click", function (event) {
   });
   $.ajax("/api/entry", {
     type: "POST",
-    data: {text: $("#story").val(), author: $("#storyAuthor").val(), StoryId: $("#createSubmit").data("id")}
-  }).then(function(res) {
+    data: { text: $("#story").val(), author: $("#storyAuthor").val(), StoryId: $("#createSubmit").data("id") }
+  }).then(function (res) {
     console.log(res);
     location.reload();
   });
@@ -74,11 +74,26 @@ $("#continueSubmit").on("click", function (event) {
   });
 });
 
-//grabbing button click by ID. change to class if this is not an issue to make the random words appear in the correct place
+
+//Random words boxes
 $("#wordRandomizer1").on("click", () => {
-  $.get("/api/randomword").then(rWords => console.log(rWords));
+  $("#randomContainer1").removeClass("hide");
+  $("#randomWordsList1").empty();
+  $.get("/api/randomword").then(rWords => {
+    rWords.forEach(function (word) {
+      console.log("WORD:", word);
+      $("#randomWordsList1").append($("<li>").text(word));
+    });
+  });
+
 });
 $("#wordRandomizer2").on("click", () => {
-  $.get("/api/randomword").then(rWords => console.log(rWords));
+  $("#randomContainer2").removeClass("hide");
+  $("#randomWordsList2").empty();
+  $.get("/api/randomword").then(rWords => {
+    rWords.forEach(function (word) {
+      console.log("WORD:", word);
+      $("#randomWordsList2").append($("<li>").text(word));
+    });
+  });
 });
-//write code to handle the response from random words

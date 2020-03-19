@@ -1,12 +1,15 @@
 <div class="row">
   <div class="col xl4 l3 m4 s4 flowtext">
     <div class="mainGreen">      
-      <h2>continue a story...</h2>     
+      <h2>continue a story...</h2>      
+    </div>
+    <div id="randomContainer1" class="mainYellow center hide">      
+      <ul id="randomWordsList1"></ul>     
     </div>
   </div>
   <div class="col s9 m8 l8 xl8 flowtext">
     {{!-- Entry Panel --}}
-    <div class="mainYellow card-panel">
+    <div class="mainRed card-panel">
       <button id="nextBtn" class="btn-flat waves-effect waves-yellow"><span id="btnText">skip!</span></button>      
       <p id="lastEntry" data-id={{idOfLastSentence.0.storyId}}>{{lastSentence.0.text}}</p>
       <div class="input-field">
@@ -19,14 +22,17 @@
       </div>
       <button id="continueSubmit" class="btn-flat waves-effect waves-red" type="submit"><span
           id="btnText">save!</span></button>
-      <button id="wordRandomizer2" class="btn-flat waves-effect waves-yellow wordRandomizer"><span id="btnText">give me ideas!</span></button>
+      <button id="wordRandomizer1" class="btn-flat waves-effect waves-yellow wordRandomizer"><span id="btnText">give me ideas!</span></button>
     </div>  
   </div>
 </div>
 <div class="row">
   <div class="col xl4 l3 m4 s4 flowtext">
     <div class="mainRed">      
-      <h2>...or create a story!</h2>     
+      <h2>...or create a story!</h2>      
+    </div>
+    <div id="randomContainer2" class="mainYellow center hide">     
+      <ul id="randomWordsList2"></ul>
     </div>
   </div>
   <div class="col s12 m8 l8 xl8 flowtext">
