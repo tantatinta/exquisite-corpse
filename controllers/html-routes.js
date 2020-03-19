@@ -33,42 +33,46 @@ module.exports = function(app) {
       include: [db.Entry]
     })
       .then(function(entryData){
-        var lastSentence = [];
-        var idOfLastSentence = [];
-        entryData.forEach(function(val){
-          if(lastSentence.length<10){
-            if(val.dataValues.Entries.length<3){
-              var allText;
-              var last = {};
-              var storyId = {};
-              if(val.dataValues.Entries.length>1){
-                allText = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.text;
-                var splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
-                if(splitText.length>1){
-                  last.text = splitText[splitText.length - 1];
-                }else{
-                  last.text = splitText[0];
+        if(entryData.length>1 || entryData.length ===1){
+          var lastSentence = [];
+          var idOfLastSentence = [];
+          entryData.forEach(function(val){
+            if(lastSentence.length<10){
+              if(val.dataValues.Entries.length<3){
+                var allText;
+                var last = {};
+                var storyId = {};
+                if(val.dataValues.Entries.length>1){
+                  allText = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.text;
+                  var splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
+                  if(splitText.length>1){
+                    last.text = splitText[splitText.length - 1];
+                  }else{
+                    last.text = splitText[0];
+                  }
+                  storyId.storyId = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.StoryId;
+                  lastSentence.push(last);
+                  idOfLastSentence.push(storyId);
+                }else if(val.dataValues.Entries.length === 1){
+                  last.text = val.dataValues.Entries[0].dataValues.text;
+                  console.log(last.text);
+                  console.log("hello");
+                  storyId.storyId = val.dataValues.Entries[0].dataValues.StoryId;
+                  lastSentence.push(last);
+                  idOfLastSentence.push(storyId);
                 }
-                storyId.storyId = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.StoryId;
-                lastSentence.push(last);
-                idOfLastSentence.push(storyId);
-              }else if(val.dataValues.Entries.length === 1){
-                last.text = val.dataValues.Entries[0].dataValues.text;
-                console.log(last.text);
-                console.log("hello");
-                storyId.storyId = val.dataValues.Entries[0].dataValues.StoryId;
-                lastSentence.push(last);
-                idOfLastSentence.push(storyId);
               }
             }
-          }
-        });
+          });
+          const idOfLastStory = [{}];
+          idOfLastStory[0].id = entryData[entryData.length - 1].id + 1;
 
-        const idOfLastStory = [{}];
-        idOfLastStory[0].id = entryData[entryData.length - 1].id + 1;
-
-        console.log({ lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory });
-        res.render("write", { lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory});
+          console.log({ lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory });
+          res.render("write", { lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory});
+        }else{
+          var passInObject = [{id: "0"}];
+          res.render("write", { idOfLastStory: passInObject});
+        }
       });
   });
 
