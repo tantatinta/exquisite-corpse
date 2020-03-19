@@ -1,17 +1,17 @@
-<div class="col s12 center">
+<div class="col l6 m8 s12">
   <div class="mainGreen">
-    <h2 class="cardHeader">Search for Stories by Entering a Pen Name Below</h2>
+    <h2 class="cardHeader">search for stories by entering a pen name below</h2>
       <div class="input-field">
             <textarea id="entryAuthor" class="materialize-textarea" data-length="20"></textarea>
-            <label id="x" for="entryAuthor">Pen Name</label>
+            <label id="x" for="entryAuthor">pen name</label>
       </div>
-      <button id="continueSubmit" class="btn-flat waves-effect waves-red" type="submit">Search</button>
+      <button id="continueSubmit" class="btn-flat waves-effect waves-purple" type="submit"><span id="btnText"></span>search<span></button>
   </div>
   <div id="add-to-me">
 
   </div>
   {{#each storyData}}
-  <div class="mainRed">
+  <div class="mainRed flow-text">
     <p>{{ text }}</p>
         
   </div>
