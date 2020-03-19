@@ -54,9 +54,19 @@ module.exports = function(app) {
                   lastSentence.push(last);
                   idOfLastSentence.push(storyId);
                 }else if(val.dataValues.Entries.length === 1){
-                  last.text = val.dataValues.Entries[0].dataValues.text;
-                  console.log(last.text);
-                  console.log("hello");
+                  allText= val.dataValues.Entries[0].dataValues.text;
+                  splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
+                  console.log(allText);
+                  console.log(splitText === null);
+                  if(splitText === null){
+                    last.text = allText;
+                  }else{
+                    if(splitText.length>1){
+                      last.text = splitText[splitText.length - 1];
+                    }else{
+                      last.text = splitText[0];
+                    }
+                  }
                   storyId.storyId = val.dataValues.Entries[0].dataValues.StoryId;
                   lastSentence.push(last);
                   idOfLastSentence.push(storyId);

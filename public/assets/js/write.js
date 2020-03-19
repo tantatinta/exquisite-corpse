@@ -1,6 +1,21 @@
 var lastSentence = [];
 var idOfLastSentence = [];
 
+function getStory() {
+  $.ajax("/api/story", {
+    type: "POST"
+  });
+}
+
+function getEntry(text, author, storyId) {
+  $.ajax("/api/entry", {
+    type: "POST",
+    data: { text: text.val(), author: author.val(), StoryId: storyId.data("id") }
+  }).then(function () {
+    location.reload();
+  });
+}
+
 $(document).ready(function () {
   $("textarea#story").characterCounter();
   $("textarea#entry").characterCounter();
@@ -49,44 +64,30 @@ $(document).ready(function () {
   });
 });
 
-var counter = 0;
+var counter = 1;
 $("#nextBtn").on("click", function (event) {
   event.preventDefault();
-  console.log(lastSentence);
   if (counter < 10) {
-    counter++;
     var displaySentence = lastSentence[counter].text;
     var displayId = idOfLastSentence[counter].storyId;
     $("#lastEntry").html(displaySentence);
     $("#lastEntry").attr("data-id", displayId);
+    counter++;
+  }
+  if(counter === lastSentence.length){
+    counter = 0;
   }
 });
 
 $("#createSubmit").on("click", function (event) {
   event.preventDefault();
-  $.ajax("/api/story", {
-    type: "POST"
-  }).then(function (res) {
-    console.log(res);
-  });
-  $.ajax("/api/entry", {
-    type: "POST",
-    data: { text: $("#story").val(), author: $("#storyAuthor").val(), StoryId: $("#createSubmit").data("id") }
-  }).then(function (res) {
-    console.log(res);
-    location.reload();
-  });
+  getStory();
+  getEntry($("#story"), $("#storyAuthor"), $("#createSubmit"));
 });
 
 $("#continueSubmit").on("click", function (event) {
   event.preventDefault();
-  $.ajax("/api/entry", {
-    type: "POST",
-    data: { text: $("#entry").val(), author: $("#entryAuthor").val(), StoryId: $("#lastEntry").data("id") }
-  }).then(function (res) {
-    console.log(res);
-    location.reload();
-  });
+  getEntry($("#entry"), $("#entryAuthor"), $("#lastEntry"));
 });
 
 
@@ -114,12 +115,10 @@ $("#wordRandomizer2").on("click", () => {
 });
 
 if ($("#createSubmit").data("id") === 0) {
-  $.ajax("/api/story", {
-    type: "POST"
-  });
+  getStory();
   $.ajax("/api/entry", {
     type: "POST",
-    data: {text: "I really hope this demo works. I would be heart broken if it did not.", author: "dummy", StoryId: 1}
+    data: {text: "I really hope this demo works. I would be heartbroken if it did not.", author: "Murc", StoryId: 1}
   }).then(function() {
     console.log("here");
     location.reload();
