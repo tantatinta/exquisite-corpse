@@ -75,6 +75,9 @@ $("#nextBtn").on("click", function (event) {
     $("#lastEntry").html(displaySentence);
     $("#lastEntry").attr("data-id", displayId);
   }
+  if(counter === lastSentence.length){
+    counter = 0;
+  }
 });
 
 $("#createSubmit").on("click", function (event) {
