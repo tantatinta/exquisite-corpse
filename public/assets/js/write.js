@@ -64,16 +64,15 @@ $(document).ready(function () {
   });
 });
 
-var counter = 0;
+var counter = 1;
 $("#nextBtn").on("click", function (event) {
   event.preventDefault();
-  console.log(lastSentence);
   if (counter < 10) {
-    counter++;
     var displaySentence = lastSentence[counter].text;
     var displayId = idOfLastSentence[counter].storyId;
     $("#lastEntry").html(displaySentence);
     $("#lastEntry").attr("data-id", displayId);
+    counter++;
   }
   if(counter === lastSentence.length){
     counter = 0;
