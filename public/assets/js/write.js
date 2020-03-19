@@ -3,6 +3,11 @@ $(document).ready(function () {
   $("textarea#entry").characterCounter();
 });
 
+// code to change id and last sentence
+// $("#lastEntry").html("");
+
+
+
 $("#createSubmit").on("click", function (event) {
   event.preventDefault();
   $.ajax("/api/story", {
