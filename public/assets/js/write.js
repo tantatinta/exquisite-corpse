@@ -91,6 +91,7 @@ if ($("#createSubmit").data("id") === 0) {
     type: "POST",
     data: {text: "dummy text", author: "dummy", StoryId: 1}
   }).then(function() {
+    console.log("here");
     location.reload();
   });
 }
