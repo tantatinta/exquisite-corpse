@@ -61,9 +61,7 @@ module.exports = function(app) {
                   console.log(splitText === null);
                   if(splitText === null){
                     last.text = allText;
-                    console.log("here");
                   }else{
-                    console.log("or here");
                     if(splitText.length>1){
                       last.text = splitText[splitText.length - 1];
                     }else{

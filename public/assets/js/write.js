@@ -64,16 +64,18 @@ $(document).ready(function () {
   });
 });
 
-var counter = 0;
+var counter = 1;
 $("#nextBtn").on("click", function (event) {
   event.preventDefault();
-  console.log(lastSentence);
   if (counter < 10) {
-    counter++;
     var displaySentence = lastSentence[counter].text;
     var displayId = idOfLastSentence[counter].storyId;
     $("#lastEntry").html(displaySentence);
     $("#lastEntry").attr("data-id", displayId);
+    counter++;
+  }
+  if(counter === lastSentence.length){
+    counter = 0;
   }
 });
 
@@ -116,7 +118,7 @@ if ($("#createSubmit").data("id") === 0) {
   getStory();
   $.ajax("/api/entry", {
     type: "POST",
-    data: {text: "I really hope this demo works. I would be heart broken if it did not.", author: "dummy", StoryId: 1}
+    data: {text: "I really hope this demo works. I would be heartbroken if it did not.", author: "Murc", StoryId: 1}
   }).then(function() {
     console.log("here");
     location.reload();
