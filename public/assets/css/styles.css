@@ -64,27 +64,7 @@ body {
 
 .mainRed,
 .mainYellow,
-.mainGreen {
-  margin-top: 15px;
-  padding: 15px;
-  background-color: rgb(253, 250, 250);
-  border-style: solid;
-  border-width: 4px;  
-  border-radius: 12px;
-}
-.mainRed {
-  border-color:#E84A5F; 
-}
-
-.mainYellow {
-  border-color:#FECEA8; 
-}
-
-.mainGreen {
-  border-color:#99B898;  
-}
-
-/* The following four classes are for the alternating colored divs on the read page. Can this be done simpler? */
+.mainGreen, 
 .alter {
   margin-top: 15px;
   padding: 15px;
@@ -93,17 +73,19 @@ body {
   border-width: 4px;  
   border-radius: 12px;
 }
-
+.mainRed, 
 .alter:nth-child(3n) {
-  border-color:#E84A5F;
+  border-color:#E84A5F; 
 }
 
+.mainYellow,
 .alter:nth-child(3n + 1) {
-  border-color:#FECEA8;
+  border-color:#FECEA8; 
 }
 
+.mainGreen,
 .alter:nth-child(3n + 2) {
-  border-color:#99B898;
+  border-color:#99B898;  
 }
 
 /* start id not being used yet 3-17-2020 8 pm  */
