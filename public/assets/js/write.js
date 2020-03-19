@@ -119,7 +119,7 @@ if ($("#createSubmit").data("id") === 0) {
   });
   $.ajax("/api/entry", {
     type: "POST",
-    data: {text: "I really hope this demo works. I would be heart broken if it did not.", author: "dummy", StoryId: 1}
+    data: {text: "I really hope this demo works. I would be heartbroken if it did not.", author: "Murc", StoryId: 1}
   }).then(function() {
     console.log("here");
     location.reload();
