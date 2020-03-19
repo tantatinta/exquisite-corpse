@@ -30,7 +30,11 @@ $("#continueSubmit").on("click", function (event) {
   });
 });
 
-$("#wordRandomizer").on("click", () => {
+//grabbing button click by ID. change to class if this is not an issue to make the random words appear in the correct place
+$("#wordRandomizer1").on("click", () => {
+  $.get("/api/randomword").then(rWords => console.log(rWords));
+});
+$("#wordRandomizer2").on("click", () => {
   $.get("/api/randomword").then(rWords => console.log(rWords));
 });
 //write code to handle the response from random words
