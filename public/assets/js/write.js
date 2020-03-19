@@ -3,9 +3,9 @@ $(document).ready(function () {
   $("textarea#entry").characterCounter();
 });
 
-// code to change id and last sentence
+// code to change id and last sentence, will need to traverse the dom
 // $("#lastEntry").html("");
-
+$
 
 
 $("#createSubmit").on("click", function (event) {
