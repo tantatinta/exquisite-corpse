@@ -5,11 +5,11 @@ function renderStories(storyData) {
     $("#add-to-me").addClass("mainYellow");
     storyData.forEach(function(val){
       if (val.Entries.length === 3){
-        var stroryString = "";
+        var storyString = "";
         val.Entries.forEach(function(results){
-          stroryString += (" " + results.text);
+          storyString += (" " + results.text);
         });
-        $("#add-to-me").append("<p>" + stroryString + "</p><hr>");
+        $("#add-to-me").append("<p>" + storyString + "</p><hr>");
       }
     });
   }

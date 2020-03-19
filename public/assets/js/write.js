@@ -34,7 +34,6 @@ $(document).ready(function () {
   });
 });
 
-// code to change id and last sentence, will need to traverse the dom
 var counter = 0;
 $("#nextBtn").on("click", function (event) {
   event.preventDefault();
@@ -97,3 +96,15 @@ $("#wordRandomizer2").on("click", () => {
     });
   });
 });
+
+if ($("#createSubmit").data("id") === 0) {
+  $.ajax("/api/story", {
+    type: "POST"
+  });
+  $.ajax("/api/entry", {
+    type: "POST",
+    data: {text: "dummy text", author: "dummy", StoryId: 1}
+  }).then(function() {
+    location.reload();
+  });
+}
