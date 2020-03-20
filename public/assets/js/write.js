@@ -41,13 +41,9 @@ $(document).ready(function () {
           }else if(val.Entries.length === 1){
             allText= val.Entries[0].text;
             splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
-            console.log(allText);
-            console.log(splitText === null);
             if(splitText === null){
               last.text = allText;
-              console.log("here");
             }else{
-              console.log("or here");
               if(splitText.length>1){
                 last.text = splitText[splitText.length - 1];
               }else{
@@ -97,7 +93,7 @@ $("#wordRandomizer1").on("click", () => {
   $("#randomWordsList1").empty();
   $.get("/api/randomword").then(rWords => {
     rWords.forEach(function (word) {
-      console.log("WORD:", word);
+      // console.log("WORD:", word);
       $("#randomWordsList1").append($("<li>").text(word));
     });
   });
@@ -108,7 +104,7 @@ $("#wordRandomizer2").on("click", () => {
   $("#randomWordsList2").empty();
   $.get("/api/randomword").then(rWords => {
     rWords.forEach(function (word) {
-      console.log("WORD:", word);
+      // console.log("WORD:", word);
       $("#randomWordsList2").append($("<li>").text(word));
     });
   });
@@ -120,7 +116,6 @@ if ($("#createSubmit").data("id") === 0) {
     type: "POST",
     data: {text: "I really hope this demo works. I would be heartbroken if it did not.", author: "Murc", StoryId: 1}
   }).then(function() {
-    console.log("here");
     location.reload();
   });
 }
