@@ -124,3 +124,14 @@ if ($("#createSubmit").data("id") === 0) {
     location.reload();
   });
 }
+
+anime({
+  targets: ".wordRandomizer",
+  keyframes: [
+    {translateX: 10},
+    {translateX: -10}
+  ],
+  loop: true,
+  easing: "easeOutQuad",
+  delay: 10000
+});
