@@ -17,8 +17,8 @@
     </div>
     {{#each storyData}}
     <div class="alter flow-text">
-      <p>{{ text }}</p>
-          
+      <p>{{ . }}</p>
+      <p>Written By: {{lookup ../authorData @index}}</p> 
     </div>
     {{/each}}
   </div>
