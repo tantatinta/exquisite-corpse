@@ -131,7 +131,7 @@ anime({
     {translateX: 10},
     {translateX: -10}
   ],
-  loop: true, 
+  loop: true,
   easing: "easeOutQuad",
   delay: 10000
 });
