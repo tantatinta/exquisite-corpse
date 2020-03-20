@@ -40,6 +40,7 @@ module.exports = function(app) {
           }
         });
         res.render("read", { storyData: allStoryStrings, authorData: allAuthors});
+        console.log("please work");
       });
   });
 
