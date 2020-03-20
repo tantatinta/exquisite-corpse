@@ -124,6 +124,11 @@ body {
   box-shadow: 0 1px 0 0 #2A363B !important;
  }
 
+hr {
+  background-color:  #99B898; 
+  height: 1px;
+};
+
 @media only screen and (min-width: 993px) {
   .container {
       width: 80%;

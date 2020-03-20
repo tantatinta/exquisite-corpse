@@ -11,20 +11,35 @@ module.exports = function(app) {
     })
       .then(function(storyData){
         var allStoryStrings = [];
+        var allAuthors = [];
         storyData.forEach(function(val){
           if(allStoryStrings.length<10){
             if(val.dataValues.Entries.length === 3){
               var entriesArray = val.dataValues.Entries;
-              var storyObject = { text: ""};
+              var storyObject = "";
+              var authorString = "";
               entriesArray.forEach(function(result){
-                storyObject.text += (" " + result.dataValues.text);
+                storyObject += (" " + result.dataValues.text);
+                if(result.dataValues.author){
+                  authorString += (" " + result.dataValues.author);
+                }
               });
               allStoryStrings.push(storyObject);
+              var split = authorString.split(" ");
+              var editedString = {author: ""};
+              if(split.length === 4){
+                editedString = split[1] + ", " + split[2] + ", and " + split[3];
+                allAuthors.push(editedString);
+              }else if(split.length === 3){
+                editedString = split[1] + " and " + split[2];
+                allAuthors.push(editedString);
+              }else{
+                allAuthors.push(authorString);
+              }
             }
           }
         });
-        console.log({ storyData: allStoryStrings });
-        res.render("read", { storyData: allStoryStrings });
+        res.render("read", { storyData: allStoryStrings, authorData: allAuthors});
       });
   });
 
@@ -42,9 +57,10 @@ module.exports = function(app) {
                 var allText;
                 var last = {};
                 var storyId = {};
+                var splitText;
                 if(val.dataValues.Entries.length>1){
                   allText = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.text;
-                  var splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
+                  splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
                   if(splitText.length>1){
                     last.text = splitText[splitText.length - 1];
                   }else{
