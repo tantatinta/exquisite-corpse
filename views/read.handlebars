@@ -1,22 +1,26 @@
-<div class="col l6 m8 s10">
-  <div class="mainGreen">
-    <h2 class="cardHeader">search for stories by entering a pen name below</h2>
+<div class="row box wrap">
+  <div class="col s12 m10 l8 xl8 flowtext">
+    <div class="mainGreen">
+      <h2 class="cardHeader">search for stories by entering a pen name below</h2>
       <div class="input-field">
             <textarea id="entryAuthor" class="materialize-textarea" data-length="20"></textarea>
             <label id="x" for="entryAuthor">pen name</label>
       </div>
       <button id="continueSubmit" class="btn-flat waves-effect waves-purple" type="submit"><span id="btnText"><span id="btnText">search</span></button>
+    </div>
   </div>
-  <div id="add-to-me">
-
-  </div>
-  {{#each storyData}} 
-  <div class="alter flow-text">
-    <p>{{ text }}</p>
-    {{!-- <p>{{ author }}</p>     --}}
-  </div>
-  {{/each}}
 </div>
- 
+<div class="row box wrap">
+  <div class="col s12 m10 l8 xl8 flowtext">
+    <div id="add-to-me">
 
+    </div>
+    {{#each storyData}}
+    <div class="alter flow-text">
+      <p>{{ text }}</p>
+          
+    </div>
+    {{/each}}
+  </div>
+</div>
 <script src="assets/js/read.js"></script>
