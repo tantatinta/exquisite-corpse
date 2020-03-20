@@ -72,8 +72,6 @@ module.exports = function(app) {
                 }else if(val.dataValues.Entries.length === 1){
                   allText= val.dataValues.Entries[0].dataValues.text;
                   splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
-                  console.log(allText);
-                  console.log(splitText === null);
                   if(splitText === null){
                     last.text = allText;
                   }else{
