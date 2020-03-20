@@ -11,20 +11,43 @@ module.exports = function(app) {
     })
       .then(function(storyData){
         var allStoryStrings = [];
+        var allAuthors = [];
         storyData.forEach(function(val){
           if(allStoryStrings.length<10){
             if(val.dataValues.Entries.length === 3){
               var entriesArray = val.dataValues.Entries;
               var storyObject = { text: ""};
+              var authorString = {author: ""};
               entriesArray.forEach(function(result){
                 storyObject.text += (" " + result.dataValues.text);
+                if(result.dataValues.author){
+                  authorString.author += (" " + result.dataValues.author);
+                }
               });
               allStoryStrings.push(storyObject);
+              // console.log(authorString);
+              // console.log(authorString.author.split(" "));
+              var split = authorString.author.split(" ");
+              var editedString = {author: ""};
+              if(split.length === 4){
+                editedString.author = split[1] + ", " + split[2] + ", and " + split[3];
+                allAuthors.push(editedString);
+              }else if(split.length === 3){
+                editedString.author = split[1] + " and " + split[2];
+                allAuthors.push(editedString);
+              }else{
+                allAuthors.push(authorString);
+              }
             }
           }
         });
-        console.log({ storyData: allStoryStrings });
-        res.render("read", { storyData: allStoryStrings });
+        // console.log(editedString.author);
+        // console.log(allAuthors);
+        // console.log({ storyData: allStoryStrings });
+        var masterArray = [allStoryStrings, allAuthors];
+        console.log(masterArray);
+        console.log({ storyData: masterArray });
+        res.render("read", { storyData: masterArray });
       });
   });
 
