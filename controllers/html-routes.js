@@ -42,10 +42,9 @@ module.exports = function(app) {
                 var allText;
                 var last = {};
                 var storyId = {};
-                var splitText;
                 if(val.dataValues.Entries.length>1){
                   allText = val.dataValues.Entries[val.dataValues.Entries.length-1].dataValues.text;
-                  splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
+                  var splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
                   if(splitText.length>1){
                     last.text = splitText[splitText.length - 1];
                   }else{
