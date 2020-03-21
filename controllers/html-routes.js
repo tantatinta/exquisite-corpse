@@ -24,23 +24,23 @@ module.exports = function(app) {
                   authorString += (" " + result.dataValues.author);
                 }
               });
-              allStoryStrings.push(storyObject);
+              allStoryStrings.unshift(storyObject);
               var split = authorString.split(" ");
               var editedString = {author: ""};
               if(split.length === 4){
                 editedString = split[1] + ", " + split[2] + ", and " + split[3];
-                allAuthors.push(editedString);
+                allAuthors.unshift(editedString);
               }else if(split.length === 3){
                 editedString = split[1] + " and " + split[2];
-                allAuthors.push(editedString);
+                allAuthors.unshift(editedString);
               }else{
-                allAuthors.push(authorString);
+                allAuthors.unshift(authorString);
               }
             }
           }
         });
         res.render("read", { storyData: allStoryStrings, authorData: allAuthors});
-        console.log("please work");
+        // console.log("please work");
       });
   });
 
