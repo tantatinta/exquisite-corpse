@@ -89,14 +89,14 @@ module.exports = function(app) {
               }
             }
           });
-          const idOfLastStory = [{}];
-          idOfLastStory[0].id = entryData[entryData.length - 1].id + 1;
+          const idOfNextStory = [{}];
+          idOfNextStory[0].id = entryData[entryData.length - 1].id + 1;
 
-          console.log({ lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory });
-          res.render("write", { lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfLastStory: idOfLastStory});
+          console.log({ lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfNextStory: idOfNextStory });
+          res.render("write", { lastSentence: lastSentence, idOfLastSentence: idOfLastSentence, idOfNextStory: idOfNextStory});
         }else{
-          var passInObject = [{id: "0"}];
-          res.render("write", { idOfLastStory: passInObject});
+          var passInObject = [{id: "1"}];
+          res.render("write", { idOfNextStory: passInObject});
         }
       });
   });
