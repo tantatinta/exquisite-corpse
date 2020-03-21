@@ -8,11 +8,12 @@ function getStory() {
 }
 
 function getEntry(text, author, storyId) {
+  console.log({ text: text.val().trim(), author: author.val().trim(), StoryId: storyId.data("id") });
   $.ajax("/api/entry", {
     type: "POST",
-    data: { text: text.val(), author: author.val(), StoryId: storyId.data("id") }
+    data: { text: text.val().trim(), author: author.val().trim(), StoryId: storyId.data("id") }
   }).then(function () {
-    location.reload();
+    // location.reload();
   });
 }
 
@@ -92,7 +93,6 @@ $("#continueSubmit").on("click", function (event) {
   if($("#entry").val().match(/\(?[^\.\?\!]+[\.!\?]\)?/g)){
     getEntry($("#entry"), $("#entryAuthor"), $("#lastEntry"));
   }else{
-    // console.log("else");
   }
 });
 
