@@ -77,8 +77,11 @@ $("#nextBtn").on("click", function (event) {
 
 $("#createSubmit").on("click", function (event) {
   event.preventDefault();
-  getStory();
-  getEntry($("#story"), $("#storyAuthor"), $("#createSubmit"));
+  if($("#story").val()){
+    console.log("something");
+    getStory();
+    getEntry($("#story"), $("#storyAuthor"), $("#createSubmit"));
+  }
 });
 
 $("#continueSubmit").on("click", function (event) {
