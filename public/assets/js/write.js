@@ -13,7 +13,7 @@ function getEntry(text, author, storyId) {
     type: "POST",
     data: { text: text.val().trim(), author: author.val().trim(), StoryId: storyId.data("id") }
   }).then(function () {
-    // location.reload();
+    location.reload();
   });
 }
 
@@ -93,6 +93,7 @@ $("#continueSubmit").on("click", function (event) {
   if($("#entry").val().match(/\(?[^\.\?\!]+[\.!\?]\)?/g)){
     getEntry($("#entry"), $("#entryAuthor"), $("#lastEntry"));
   }else{
+    console.log("failed validation");
   }
 });
 
