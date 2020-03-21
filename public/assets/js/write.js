@@ -63,12 +63,15 @@ $(document).ready(function () {
 var counter = 1;
 $("#nextBtn").on("click", function (event) {
   event.preventDefault();
+  console.log(counter);
+  console.log(lastSentence.length);
   if (counter < 10) {
     var displaySentence = lastSentence[counter].text;
     var displayId = idOfLastSentence[counter].storyId;
     $("#lastEntry").html(displaySentence);
     $("#lastEntry").attr("data-id", displayId);
     counter++;
+    console.log(counter);
   }
   if(counter === lastSentence.length){
     counter = 0;
@@ -77,7 +80,7 @@ $("#nextBtn").on("click", function (event) {
 
 $("#createSubmit").on("click", function (event) {
   event.preventDefault();
-  if($("#story").val()){
+  if($("#story").val() && $("#story").val().match(/\(?[^\.\?\!]+[\.!\?]\)?/g)){
     console.log("something");
     getStory();
     getEntry($("#story"), $("#storyAuthor"), $("#createSubmit"));
@@ -86,7 +89,11 @@ $("#createSubmit").on("click", function (event) {
 
 $("#continueSubmit").on("click", function (event) {
   event.preventDefault();
-  getEntry($("#entry"), $("#entryAuthor"), $("#lastEntry"));
+  if($("#entry").val().match(/\(?[^\.\?\!]+[\.!\?]\)?/g)){
+    getEntry($("#entry"), $("#entryAuthor"), $("#lastEntry"));
+  }else{
+    // console.log("else");
+  }
 });
 
 
