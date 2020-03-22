@@ -19,7 +19,7 @@ module.exports = function(app) {
               var storyObject = "";
               var authorString = "";
               entriesArray.forEach(function(result){
-                storyObject += (" " + result.dataValues.text);
+                storyObject += ("  " + result.dataValues.text);
                 if(result.dataValues.author){
                   authorString += (" " + result.dataValues.author);
                 }
