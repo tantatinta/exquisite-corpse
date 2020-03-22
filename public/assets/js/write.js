@@ -8,9 +8,10 @@ function getStory() {
 }
 
 function getEntry(text, author, storyId) {
+  console.log({ text: text.val().trim(), author: author.val().trim(), StoryId: storyId.data("id") });
   $.ajax("/api/entry", {
     type: "POST",
-    data: { text: text.val(), author: author.val(), StoryId: storyId.data("id") }
+    data: { text: text.val().trim(), author: author.val().trim(), StoryId: storyId.data("id") }
   }).then(function () {
     location.reload();
   });
@@ -41,13 +42,9 @@ $(document).ready(function () {
           }else if(val.Entries.length === 1){
             allText= val.Entries[0].text;
             splitText = allText.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);
-            console.log(allText);
-            console.log(splitText === null);
             if(splitText === null){
               last.text = allText;
-              console.log("here");
             }else{
-              console.log("or here");
               if(splitText.length>1){
                 last.text = splitText[splitText.length - 1];
               }else{
@@ -67,12 +64,15 @@ $(document).ready(function () {
 var counter = 1;
 $("#nextBtn").on("click", function (event) {
   event.preventDefault();
+  console.log(counter);
+  console.log(lastSentence.length);
   if (counter < 10) {
     var displaySentence = lastSentence[counter].text;
     var displayId = idOfLastSentence[counter].storyId;
     $("#lastEntry").html(displaySentence);
     $("#lastEntry").attr("data-id", displayId);
     counter++;
+    console.log(counter);
   }
   if(counter === lastSentence.length){
     counter = 0;
@@ -81,13 +81,20 @@ $("#nextBtn").on("click", function (event) {
 
 $("#createSubmit").on("click", function (event) {
   event.preventDefault();
-  getStory();
-  getEntry($("#story"), $("#storyAuthor"), $("#createSubmit"));
+  if($("#story").val() && $("#story").val().match(/\(?[^\.\?\!]+[\.!\?]\)?/g)){
+    console.log("something");
+    getStory();
+    getEntry($("#story"), $("#storyAuthor"), $("#createSubmit"));
+  }
 });
 
 $("#continueSubmit").on("click", function (event) {
   event.preventDefault();
-  getEntry($("#entry"), $("#entryAuthor"), $("#lastEntry"));
+  if($("#entry").val().match(/\(?[^\.\?\!]+[\.!\?]\)?/g)){
+    getEntry($("#entry"), $("#entryAuthor"), $("#lastEntry"));
+  }else{
+    console.log("failed validation");
+  }
 });
 
 
@@ -97,7 +104,7 @@ $("#wordRandomizer1").on("click", () => {
   $("#randomWordsList1").empty();
   $.get("/api/randomword").then(rWords => {
     rWords.forEach(function (word) {
-      console.log("WORD:", word);
+      // console.log("WORD:", word);
       $("#randomWordsList1").append($("<li>").text(word));
     });
   });
@@ -108,7 +115,7 @@ $("#wordRandomizer2").on("click", () => {
   $("#randomWordsList2").empty();
   $.get("/api/randomword").then(rWords => {
     rWords.forEach(function (word) {
-      console.log("WORD:", word);
+      // console.log("WORD:", word);
       $("#randomWordsList2").append($("<li>").text(word));
     });
   });
@@ -120,7 +127,6 @@ if ($("#createSubmit").data("id") === 0) {
     type: "POST",
     data: {text: "I really hope this demo works. I would be heartbroken if it did not.", author: "Murc", StoryId: 1}
   }).then(function() {
-    console.log("here");
     location.reload();
   });
 }
