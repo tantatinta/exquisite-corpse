@@ -7,7 +7,7 @@ function renderStories(storyData) {
       if (val.Entries.length === 3){
         var storyString = "";
         val.Entries.forEach(function(results){
-          storyString += (" " + results.text);
+          storyString += ("  " + results.text);
         });
         $("#add-to-me").append("<p>" + storyString + "</p><hr>");
       }
