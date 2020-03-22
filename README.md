@@ -12,4 +12,4 @@ This project is a quirky app used to make stories from multiple authors. It was 
 ![alt text](https://raw.githubusercontent.com/tantatinta/exquisite-corpse/master/public/assets/img/exquisite-art-playpage.gif "")
 
 ## Link
-[Play Exquisite Corpse!](https://raw.githubusercontent.com/tantatinta/exquisite-corpse/master/public/assets/img/exquisite-art-homepage.gif)
+[Play Exquisite Corpse!](https://play-exquisite-corpse.herokuapp.com/)
