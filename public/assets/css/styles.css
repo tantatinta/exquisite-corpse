@@ -1,17 +1,34 @@
-.box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+body {
+  background-color:rgb(253, 250, 250);
 }
 
-.box div {
-  width: 100%;
-  height: 100%;
+hr {
+  background-color:  #99B898; 
+  height: 1px;
 }
 
-h1,
-p.header,
-span.header {
+p {
+  font-family: 'Baloo Bhai 2';
+  color: #2A363B;
+  font-size: 16px;
+  margin: 0;
+  padding: 5px;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+a {
+  color: #2A363B;
+}
+
+.header {
   font-family: 'Poppins', sans-serif;
   font-size: 30px;
   font-weight: bolder;
@@ -32,43 +49,15 @@ span.header {
   color: #2A363B;
 }
 
-h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
+.menu {
   text-align: right;
-  margin: 0;
-  padding-bottom: 5px;
+  padding-top: 10px;
 }
 
 .topRow {
   margin-top: 5px;  
   padding-top: 15px;
-  padding-bottom: 5px;  
-}
-
-a {
-  color: #2A363B;
-}
-
-#randomContainer1,
-#randomContainer2 {
-  font-family: 'Baloo Bhai 2';
-  color: #2A363B;
-  font-size: 16px;
-  padding: 5px;  
-}
-
-p {
-  font-family: 'Baloo Bhai 2';
-  color: #2A363B;
-  font-size: 16px;
-  margin: 0;
-  padding: 5px;
-}
-
-body {
-  background-color:rgb(253, 250, 250);
+  padding-bottom: 5px;   
 }
 
 .mainRed,
@@ -100,19 +89,9 @@ body {
 
 .container {
   height: 100vh;
+  width: 90%;
 }
 
-.wordRandomizer,
-#nextBtn {
-  float: right !important;
-}
-
-#btnText {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: normal !important;
-  text-transform: lowercase !important;
-}
 /* label focus color */
 .input-field input[type=story] + label, .materialize-textarea:focus:not([readonly]) + label, .input-field input[type=entry] + label, .materialize-textarea:focus:not([readonly]) + label {
   color: #2A363B !important;
@@ -129,52 +108,32 @@ body {
   text-align: right;
 }
 
-hr {
-  background-color:  #99B898; 
-  height: 1px;
-};
-
-@media only screen and (min-width: 993px){
-  .container {
-      width: 80%;
-  }
+.wordRandomizer,
+#nextBtn {
+  float: right !important;
 }
 
-@media only screen and (min-width: 993px) {
-  .container {
-      width:90%;
-  }
+#btnText {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: normal !important;
+  text-transform: lowercase !important;
+}
+
+#randomContainer1,
+#randomContainer2 {
+  font-family: 'Baloo Bhai 2';
+  color: #2A363B;
+  font-size: 16px;
+  padding: 5px;  
 }
 
 @media screen and (max-width: 840px) {
-  .left-align {
+  .menu {
     text-align: left;
   }
-  h1 {
+  .header {
     padding-left: 0;
-  }
-}
-/* On screens that are x-px or less,*/
-@media screen and (max-width: 400px) {
-  .wrap {
-    flex-wrap: wrap;
-  }  
-}
-
-@media screen and (max-width: 500px) {
-  .wrap {
-    flex-wrap: wrap;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .wrap {
-    flex-wrap: wrap;
-  }
-}
-
-@media screen and (max-width: 840px) {
-  .wrap {
-    flex-wrap: wrap;
-  }
+    padding-bottom: 5px;
+  } 
 }
